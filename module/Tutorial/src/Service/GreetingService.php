@@ -9,7 +9,10 @@ class GreetingService implements GreetingServiceInterface
     public function getGreeting()
     {
         $output = '';
-        $hour = date('G');
+
+        $dt = new \DateTime();
+        $dt->setTimezone(new \DateTimeZone('America/New_York'));
+        $hour = $dt->format('G');
 
         if ($hour > 5 && $hour <= 11) {
             $output = 'Good morning, world!';
