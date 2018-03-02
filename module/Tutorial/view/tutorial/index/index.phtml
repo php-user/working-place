@@ -1,9 +1,43 @@
 <?php
+
+class Greeting
+{
+    public function sayHello($greetingWord)
+    {
+        return $greetingWord . ' world';
+    }
+}
+
+class MyGreeting
+{
+    public $greeting;
+
+    public function __construct(Greeting $greeting)
+    {
+        $this->greeting = $greeting;
+    }
+}
+
+//$myGreeting = new MyGreeting(new Greeting);
+//echo $myGreeting->greeting->sayHello('Hello');
+
+//$di = new \Zend\Di\Di();
+//$myGreeting = $di->get('MyGreeting');
+//echo $myGreeting->greeting->sayHello('Hello');
+
+?>
+
+<?php
 $headTitle = 'Tutorial';
 $this->headTitle($headTitle);
 ?>
 <div class="row">
     <div class="col-sm-12">
         <h3><?= $headTitle ?></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div><?= $this->escapeHtml($this->greeting) ?></div>
     </div>
 </div>

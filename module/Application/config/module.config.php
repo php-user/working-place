@@ -66,15 +66,15 @@ return [
                 'wrapClass' => 'nav-item',
                 'class'     => 'nav-link',
             ],
-            'admin' => [
-                'label'     => 'Admin',
-                'route'     => 'admin',
-                'wrapClass' => 'nav-item',
-                'class'     => 'nav-link',
-            ],
             'blog' => [
                 'label'     => 'Blog',
                 'route'     => 'blog',
+                'wrapClass' => 'nav-item',
+                'class'     => 'nav-link',
+            ],
+            'admin' => [
+                'label'     => 'Admin',
+                'route'     => 'admin',
                 'wrapClass' => 'nav-item',
                 'class'     => 'nav-link',
             ],

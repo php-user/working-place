@@ -2,6 +2,7 @@
 
 namespace Tutorial;
 
+use Tutorial\Controller\IndexControllerFactory;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -23,7 +24,8 @@ return [
     ],
     'controllers' => [
         'factories' => [
-            Controller\IndexController::class => InvokableFactory::class,
+            //Controller\IndexController::class => InvokableFactory::class,
+            //Controller\IndexController::class => IndexControllerFactory::class,
         ],
     ],
     'view_manager' => [

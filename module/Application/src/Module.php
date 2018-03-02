@@ -19,4 +19,13 @@ class Module
             ],
         ];
     }
+
+    public function getViewHelperConfig()
+    {
+        return [
+            'invokables' => [
+                'getYear' => View\Helper\GetYear::class,
+            ],
+        ];
+    }
 }
