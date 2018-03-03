@@ -14,6 +14,7 @@ class IndexController extends AbstractActionController
     {
         return new ViewModel([
             'greeting' => $this->getGreetingService()->getGreeting(),
+            //'greeting' => 'Hello world!',
         ]);
     }
 

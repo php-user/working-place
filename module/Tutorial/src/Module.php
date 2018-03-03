@@ -16,8 +16,12 @@ class Module
     public function getServiceConfig()
     {
         return [
+            'factories' => [
+                'greetingService'   => Service\GreetingServiceFactory::class,
+                'greetingAggregate' => Event\GreetingServiceListenerAggregateFactory::class,
+            ],
             'invokables' => [
-                'greetingService' => Service\GreetingService::class,
+                'someService'     => Service\SomeService::class
             ],
         ];
     }
