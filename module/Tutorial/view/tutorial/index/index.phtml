@@ -39,5 +39,7 @@ $this->headTitle($headTitle);
 <div class="row">
     <div class="col-sm-12">
         <div><?= $this->escapeHtml($this->greeting) ?></div>
+        <hr>
+        <div><a href="<?= $this->url('tutorial/example', ['action' => 'index']) ?>" class="btn btn-info">Example page</a></div>
     </div>
 </div>

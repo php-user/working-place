@@ -27,6 +27,7 @@ return [
     'Zend\Validator',
     'Application',
     'Tutorial',
+    //'TutorialMod',
     'Blog',
     'Admin',
 ];

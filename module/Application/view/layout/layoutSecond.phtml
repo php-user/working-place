@@ -13,7 +13,7 @@
     <!-- Le styles -->
     <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
         ->prependStylesheet($this->basePath('css/style.css'))
-        ->prependStylesheet($this->basePath('css/lux-bootstrap.min.css'))
+        ->prependStylesheet($this->basePath('css/pulse-bootstrap.min.css'))
     ?>
 
     <!-- Scripts -->
@@ -25,13 +25,13 @@
     ?>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
     <div class="container">
         <a class="navbar-brand" href="<?= $this->url('home') ?>">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+        <div class="collapse navbar-collapse" id="id="navbarColor01"">
             <?php
                 echo $this->navigation('top_navigation')->menu()
                                                         ->setUlClass("navbar-nav mr-auto")
