@@ -9,6 +9,10 @@ body {
     margin-bottom: 120px; /* Margin bottom by footer height */
 }
 
+a:focus, button[type="button"] {
+    outline: none;
+}
+
 div.container a.navbar-brand > img {
     display: inline;
     margin-right: 4px;
@@ -25,3 +29,8 @@ div.container a.navbar-brand > img {
 .footer .footer-text {
     margin-top: 40px;
 }
+
+#message-box {
+    padding: 0rem 1.25rem;
+}
+
