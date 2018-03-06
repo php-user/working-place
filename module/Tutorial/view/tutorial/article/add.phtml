@@ -1,0 +1,23 @@
+<?php
+$headTitle = 'Add article';
+$this->headTitle($headTitle);
+?>
+<div class="row">
+    <div class="col-sm-12">
+        <h3><?= $headTitle ?></h3>
+        <!--<form action="<?/*= $this->url('tutorial/article', ['action' => 'add']) */?>" method="post" class="form-inline">-->
+        <!--<form action="/tutorial/articles/add" method="post" class="form-inline">-->
+        <form action="/tutorial/article-add" method="post" class="form-inline">
+            <div class="form-group">
+                <label class="col-form-label">
+                    <input type="text" name="title" class="form-control" />
+                </label>
+            </div>
+            <input type="submit" name="submit" value="Add" class="btn btn-outline-secondary" />
+        </form>
+        <hr />
+        <!--<a href="/tutorial/articles">&laquo; Back</a>-->
+        <a href="/tutorial/article">&laquo; Back</a>
+    </div>
+</div>
+

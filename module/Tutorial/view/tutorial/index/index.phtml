@@ -39,8 +39,15 @@ $this->headTitle($headTitle);
 <div class="row">
     <div class="col-sm-12">
         <div><?= $this->escapeHtml($this->greeting) ?></div>
-        <hr>
+        <hr />
         <div class="mb-3"><?= $this->escapeHtml($this->getTime()) ?></div>
         <div><a href="<?= $this->url('tutorial/example', ['action' => 'index']) ?>" class="btn btn-info">Example page</a></div>
+        <hr />
+        <!--<div><a href="<?/*= $this->url('tutorial/article', ['action' => 'index']) */?>" class="btn btn-info">Articles</a></div>-->
+        <div><a href="/tutorial/article" class="btn btn-info">Articles</a></div>
+        <hr />
+        <!--<div><a href="/tutorial/articles" class="btn btn-info">Articles regex</a></div>-->
+        <div><a href="/tutorial/shuffle" class="btn btn-info">Shuffle</a></div>
+        <hr />
     </div>
 </div>

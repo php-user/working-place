@@ -1,0 +1,47 @@
+<?php
+$headTitle = 'Articles';
+$this->headTitle($headTitle);
+?>
+<div class="row">
+    <div class="col-sm-12">
+        <h3><?= $headTitle ?></h3>
+        <?php
+
+        $flash = $this->flashMessenger();
+        $flash->setMessageOpenFormat('<div%s id="message-box">
+             <button type="button" class="close pt-3" data-dismiss="alert" aria-hidden="true">
+                 &times;
+             </button>
+             <ul class="list-unstyled pt-3"><li>')
+             ->setMessageSeparatorString('</li><li>')
+             ->setMessageCloseString('</li></ul></div>');
+
+        echo $flash->render('error',   array('alert', 'alert-dismissible', 'alert-danger', 'fade', 'show'));
+        echo $flash->render('info',    array('alert', 'alert-dismissible', 'alert-info', 'fade', 'show'));
+        echo $flash->render('default', array('alert', 'alert-dismissible', 'alert-warning', 'fade', 'show'));
+        echo $flash->render('success', array('alert', 'alert-dismissible', 'alert-success', 'fade', 'show'));
+
+        ?>
+        <!--<hr />
+        <a href="<?/*= $this->url('tutorial/article', ['action' => 'add']) */?>" class="btn btn-outline-secondary">
+            Add article
+        </a>
+        <a href="/tutorial/articles/add" class="btn btn-outline-secondary">
+            Add article (regex)
+        </a>
+        <a href="<?/*= $this->url('tutorial/article', ['action' => 'edit', 'id' => 10]) */?>"
+           class="btn btn-outline-secondary float-right"
+        >
+            Edit article
+        </a>
+        <a href="/tutorial/articles/edit/10" class="btn btn-outline-secondary float-right">
+            Edit article (regex)
+        </a>-->
+        <hr />
+        <div class="panel">
+            <a href="/tutorial/article-add" class="btn btn-outline-secondary">Add article</a>
+            <a href="/tutorial/article-edit/12" class="btn btn-outline-secondary">Edit article</a>
+        </div>
+    </div>
+</div>
+

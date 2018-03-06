@@ -9,6 +9,7 @@ namespace Application;
 
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
+use Zend\Router\Http\Hostname;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
@@ -16,8 +17,10 @@ return [
         'routes' => [
             'home' => [
                 'type' => Literal::class,
+                //'type' => Hostname::class,
                 'options' => [
                     'route'    => '/',
+                    //'route'    => 'framework.loc',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',

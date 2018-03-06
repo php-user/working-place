@@ -5,6 +5,8 @@ namespace Tutorial;
 use Tutorial\Controller\IndexControllerFactory;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
+use Zend\Router\Http\Regex;
+use Zend\Router\Http\Method;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
@@ -34,7 +36,133 @@ return [
                             ],
                         ],
                     ],
-                ]
+                    /*'article' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route'    => '/articles[/:action[/:id]]',
+                            'constraint'    => [
+                                'action' => '[a-z]+',
+                                'id'     => '[0-9]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\ArticleController::class,
+                                'action'     => 'index',
+                            ],
+                        ],
+                    ],*/
+                    /*'article' => [
+                        'type' => Regex::class,
+                        'options' => [
+                            'regex'   => '/articles(/(?<action>[a-z]+)(/(?<id>[0-9]+))?)?',
+                            'spec' => '/%action%',
+                            'defaults' => [
+                                'controller' => Controller\ArticleController::class,
+                                'action'     => 'index',
+                            ],
+                        ],
+                    ],*/
+
+                    'article' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route'    => '/article[/:action][/:id]',
+                            'constraints'    => [
+                                'action' => '[a-z]+',
+                                'id'     => '[0-9]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\ArticleController::class,
+                                'action'     => 'index',
+                            ],
+                        ],
+                    ],
+
+                    'articleAdd' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route'    => '/article-add',
+                            'constraints'    => [
+                                'action' => '[a-z]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\ArticleController::class,
+                                'action'     => 'index',
+                            ],
+                        ],
+                        'child_routes' => [
+                            'addGet' => [
+                                'type' => Method::class,
+                                'options' => [
+                                    'verb'    => 'get',
+                                    'defaults' => [
+                                        'controller' => Controller\ArticleController::class,
+                                        'action'     => 'add',
+                                    ],
+                                ],
+                            ],
+                            'addPost' => [
+                                'type' => Method::class,
+                                'options' => [
+                                    'verb'    => 'post',
+                                    'defaults' => [
+                                        'controller' => Controller\ArticleController::class,
+                                        'action'     => 'addPost',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+
+                    'articleEdit' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route'    => '/article-edit[/:id]',
+                            'constraints'    => [
+                                'id'     => '[0-9]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\ArticleController::class,
+                                'action'     => 'index',
+                            ],
+                        ],
+                        'child_routes' => [
+                            'editGet' => [
+                                'type' => Method::class,
+                                'options' => [
+                                    'verb'    => 'get',
+                                    'defaults' => [
+                                        'controller' => Controller\ArticleController::class,
+                                        'action'     => 'edit',
+                                    ],
+                                ],
+                            ],
+                            'editPost' => [
+                                'type' => Method::class,
+                                'options' => [
+                                    'verb'    => 'post',
+                                    'defaults' => [
+                                        'controller' => Controller\ArticleController::class,
+                                        'action'     => 'editPost',
+                                    ],
+                                ],
+                            ],
+                        ],
+                    ],
+
+                    'shuffle' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route'    => '/shuffle[/:action]',
+                            'constraints'    => [
+                                'action' => '[a-z]+'
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\ShuffleController::class,
+                                'action'     => rand(0, 1) ? 'rand1' : 'rand2',
+                            ],
+                        ],
+                    ],
+                ],
             ],
         ],
     ],
@@ -43,6 +171,8 @@ return [
             //Controller\IndexController::class => InvokableFactory::class,
             //Controller\IndexController::class => IndexControllerFactory::class,
             Controller\ExampleController::class => InvokableFactory::class,
+            Controller\ArticleController::class => InvokableFactory::class,
+            Controller\ShuffleController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
