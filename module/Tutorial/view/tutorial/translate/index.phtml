@@ -1,0 +1,41 @@
+<?php
+$headTitle = 'Tutorial';
+$this->headTitle($headTitle);
+
+$currentLang = $this->layout()->language;
+?>
+<div class="row">
+    <div class="col-sm-6">
+        <h3><?= $this->translate($headTitle) ?></h3>
+    </div>
+
+    <div class="col-sm-6 change-language-form">
+        <form action="<?= $this->url('tutorial/translate', ['action' => 'translate']) ?>"
+              method="get"
+              id="change-language-form"
+              class="form-inline float-right"
+        >
+            <div class="form-group">
+
+                <label for="languageElement"><?php echo $this->translate('Change current language') ?></label>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <select id="languageElement" class="form-control form-control-sm"
+                        name="language"
+                        onchange="$('#change-language-form').submit()"
+                >
+                    <option <?php echo $currentLang === 'en_US' ? 'selected' : '' ?> value="en_US">
+                        <?= $this->translate('English') ?>
+                    </option>
+                    <option <?php echo $currentLang === 'es_ES' ? 'selected' : '' ?> value="es_ES">
+                        <?= $this->translate('Spanish') ?>
+                    </option>
+                    <option <?php echo $currentLang === 'ru_RU' ? 'selected' : '' ?> value="ru_RU">
+                        <?= $this->translate('Russian') ?>
+                    </option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+<hr>
+<h5><?= $this->translate('Hello') ?></h5>

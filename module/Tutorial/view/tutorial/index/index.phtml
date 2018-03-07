@@ -28,6 +28,89 @@ class MyGreeting
 ?>
 
 <?php
+
+//$str = '';
+
+/*$stringLength = new \Zend\Validator\StringLength(['min' => 2, 'max' => 10]);
+$stringLength->setMessages([
+    \Zend\Validator\StringLength::TOO_SHORT => 'Too short',
+    \Zend\Validator\StringLength::TOO_LONG  => 'Too long',
+]);
+
+$notEmpty = new \Zend\Validator\NotEmpty();
+$notEmpty->setMessages([
+    \Zend\Validator\NotEmpty::IS_EMPTY => 'The value is empty',
+]);
+
+$isAlpha = new \Zend\I18n\Validator\Alpha();
+$isAlpha->setMessage('Not ALPHA', \Zend\I18n\Validator\Alpha::NOT_ALPHA);
+
+$validatorChain = new \Zend\Validator\ValidatorChain();
+$validatorChain->attach($stringLength);
+$validatorChain->attach($notEmpty);
+$validatorChain->attach($isAlpha);*/
+
+/*$validatorChain = new \Zend\Validator\ValidatorChain();
+$validatorChain->attachByName('StringLength', ['min' => 2, 'max' => 10]);
+$validatorChain->attachByName('NotEmpty');
+$validatorChain->attachByName('Alpha');*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/*$val = 10;
+
+$floatValidator = new \Tutorial\Validator\FloatValidator();
+
+if ($floatValidator->isValid($val)) {
+    echo 'Valid';
+} else {
+    foreach ($floatValidator->getMessages() as $error) {
+        echo '<div>' . $error . '</div>';
+    }
+}
+
+echo '<hr>';*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//$str = '             <a href="#">Link</a>';
+
+/*$stripTags  = new \Zend\Filter\StripTags();
+$stringTrim = new \Zend\Filter\StringTrim();
+
+$filterChain = new \Zend\Filter\FilterChain();
+$filterChain->attach($stripTags);
+$filterChain->attach($stringTrim);*/
+
+/*$filterChain = new \Zend\Filter\FilterChain();
+$filterChain->attachByName('StripTags');
+$filterChain->attachByName('StringTrim');
+
+
+$res = $filterChain->filter($str);
+
+echo $res;*/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+$translator = new \Zend\I18n\Translator\Translator();
+$type = 'phparray';
+$fileName = 'ru.php';
+
+$path = getcwd() . '/data/translate/' . $fileName;
+
+if (is_file($path)) {
+    $translator->addTranslationFile($type, $path);
+    echo $translator->translate('Hello');
+}
+
+echo '<hr>';
+
+?>
+
+
+<?php
 $headTitle = 'Tutorial';
 $this->headTitle($headTitle);
 ?>
@@ -48,6 +131,8 @@ $this->headTitle($headTitle);
         <hr />
         <!--<div><a href="/tutorial/articles" class="btn btn-info">Articles regex</a></div>-->
         <div><a href="/tutorial/shuffle" class="btn btn-info">Shuffle</a></div>
+        <hr />
+        <div><a href="/tutorial/translate" class="btn btn-info">Translate</a></div>
         <hr />
     </div>
 </div>

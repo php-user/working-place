@@ -36,6 +36,19 @@ return [
                             ],
                         ],
                     ],
+                    'translate' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route'    => '/translate[/:action]',
+                            'constraint'    => [
+                                'action' => '[a-z]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\TranslateController::class,
+                                'action'     => 'index',
+                            ],
+                        ],
+                    ],
                     /*'article' => [
                         'type' => Segment::class,
                         'options' => [
@@ -173,6 +186,7 @@ return [
             Controller\ExampleController::class => InvokableFactory::class,
             Controller\ArticleController::class => InvokableFactory::class,
             Controller\ShuffleController::class => InvokableFactory::class,
+            Controller\TranslateController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
@@ -183,4 +197,20 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+
+    /*'translator' => [
+        'locale' => 'en_US',
+        'translation_file_patterns' => [
+            [
+                'base_dir' => __DIR__.'/../languages/phpArray',
+                'type'     => 'phpArray',
+                'pattern'  => '%s.php',
+            ],
+            [
+                'base_dir' => __DIR__.'/../languages/gettext',
+                'type'     => 'gettext',
+                'pattern'  => '%s.mo',
+            ],
+        ],
+    ],*/
 ];
