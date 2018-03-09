@@ -1,0 +1,18 @@
+<?php
+$headTitle = 'Page';
+$this->headTitle($headTitle);
+
+$currentLang = $this->layout()->language;
+?>
+<div class="row">
+    <div class="col-sm-12">
+        <h3><?= $this->translate($headTitle) ?></h3>
+    </div>
+
+    <div class="col-sm-12">
+        <hr />
+        <a href="<?= $this->url('tutorial/sample') ?>" class="btn btn-outline-secondary">Sample</a>
+        <hr />
+    </div>
+
+</div>

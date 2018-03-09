@@ -34,3 +34,8 @@ div.container a.navbar-brand > img {
     padding: 0rem 1.25rem;
 }
 
+#ajax-result {
+    height: 20px;
+    color: #d00;
+}
+

@@ -10,4 +10,24 @@ $(function(){
 
     ///////////
 
+    var manageUsers = function () {
+        var formData = $('#user-form').serialize();
+
+        $.ajax({
+            url: '/tutorial/ajax/process',
+            type: 'post',
+            dataType: 'json',
+            data: formData,
+            success: function(data){
+                $('#ajax-result').text(data);
+            },
+        });
+    }
+
+    $('#user-form').on('submit', function(event){
+        event.preventDefault();
+
+        manageUsers();
+    });
+
 });

@@ -49,6 +49,32 @@ return [
                             ],
                         ],
                     ],
+                    'sample' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route'    => '/sample[/:action]',
+                            'constraint'    => [
+                                'action' => '[a-z]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\SampleController::class,
+                                'action'     => 'index',
+                            ],
+                        ],
+                    ],
+                    'ajax' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route'    => '/ajax[/:action]',
+                            'constraint'    => [
+                                'action' => '[a-z]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\AjaxController::class,
+                                'action'     => 'index',
+                            ],
+                        ],
+                    ],
                     /*'article' => [
                         'type' => Segment::class,
                         'options' => [
@@ -187,6 +213,8 @@ return [
             Controller\ArticleController::class => InvokableFactory::class,
             Controller\ShuffleController::class => InvokableFactory::class,
             Controller\TranslateController::class => InvokableFactory::class,
+            Controller\SampleController::class => InvokableFactory::class,
+            Controller\AjaxController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [

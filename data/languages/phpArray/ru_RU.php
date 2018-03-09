@@ -37,4 +37,5 @@ return [
     'Manage users' => 'Управление пользователями',
     'Change current language' => 'Изменить язык по умолчанию',
     'Tutorial' => 'Руководство',
+    'Translate' => 'Перевод',
 ];
