@@ -1,9 +1,4 @@
 <?php
-/**
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
 
 namespace Application;
 
@@ -11,8 +6,39 @@ use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\Router\Http\Hostname;
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 
 return [
+    'doctrine' => [
+        'driver' => [
+            __NAMESPACE__ . '_driver' => [
+                'class' => AnnotationDriver::class,
+                'cache' => 'array',
+                'paths' => [__DIR__ . '/../src/Entity']
+            ],
+            'orm_default' => [
+                'drivers' => [
+                    __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
+                ]
+            ]
+        ],
+
+        'configuration' => array(
+            'orm_default' => array(
+                'metadata_cache' => 'array',
+                'query_cache' => 'array',
+                'result_cache' => 'array',
+                'hydration_cache' => 'array',
+                'generate_proxies' => true,
+                'proxy_dir' => 'data/DoctrineORMModule/Proxy',
+                'proxy_namespace' => 'DoctrineORMModule\Proxy',
+            ),
+        ),
+
+
+
+    ],
+
     'router' => [
         'routes' => [
             'home' => [
