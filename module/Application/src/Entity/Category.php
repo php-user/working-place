@@ -43,14 +43,11 @@ class Category
     private $categoryOrder;
 
     /**
-     * @var \Application\Entity\Category
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Application\Entity\Category")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="parent_id", referencedColumnName="id", nullable=true)
-     * })
+     * @ORM\Column(name="parent_id", type="integer", precision=0, scale=0, nullable=true, unique=false)
      */
-    private $parent;
+    private $parent = 0;
 
 
     /**

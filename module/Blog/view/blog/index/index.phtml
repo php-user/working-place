@@ -3,10 +3,8 @@ $headTitle = 'Blog';
 $this->headTitle($headTitle);
 ?>
 <div class="row">
-    <div class="col-sm-3">
-        <h3><?= $headTitle ?></h3>
-    </div>
-    <div class="col-sm-9">
+    <div class="col-lg-3"><div class="fixed app-nav"><?= $this->getCategories() ?></div></div>
+    <div class="col-lg-9">
         <?php foreach ($this->articles as $article) : ?>
 
             <div class="card mb-4">

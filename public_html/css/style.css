@@ -39,3 +39,30 @@ div.container a.navbar-brand > img {
     color: #d00;
 }
 
+/* Block for aside menu */
+
+.app-nav a {
+    display: inline-block;
+}
+
+ul.topnav ul {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.topnav span:first-child {
+    text-align: right;
+    display: inline-block;
+    width: 20px;
+}
+
+.app-nav .list-group-item:first-child {
+    border-radius: .25rem;
+}
+
+a.highlight {
+    border: 1px solid #008BFF;
+}
+
+/* End block for aside menu */
