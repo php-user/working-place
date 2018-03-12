@@ -12,7 +12,19 @@ $this->headTitle($headTitle);
                 <div class="card-body">
                     <h3 class="card-title"><?= $article->getTitle() ?></h3>
                     <p class="card-text"><?= $article->getDescription() ?></p>
-                    <a href="#" class="btn btn-sm btn-outline-secondary">Read More &rarr;</a>
+                    <!--
+
+
+
+
+
+
+                    -->
+
+
+
+                    <a href="<?= $this->url('blog/b', ['action' => 'page', 'id' => $article->getId()]) ?>" class="btn btn-sm btn-outline-secondary">Read More &rarr;</a>
+                    <!--<a href="blog/page/<?/*= $article->getId() */?>" class="btn btn-sm btn-outline-secondary">Read More &rarr;</a>-->
                 </div>
                 <div class="card-footer text-muted">Posted on <?php date( 'F d, Y' ); ?> by
                     <a href="#">Author</a>

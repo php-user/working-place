@@ -1,5 +1,7 @@
 $(function(){
 
+    var pathname = window.location.pathname;
+
     /*   For active menu   */
     var pathname = window.location.pathname; // get current URL path
 
@@ -57,6 +59,20 @@ $(function(){
             return false;
         }
     });
+
+    // To add padding to each nested link in menu
+
+    var menuLinks = $('ul.topnav').find('a');
+
+    menuLinks.each(function(){
+        var parentsUntilLength = $(this).parentsUntil('.app-nav').length;
+        var div = parentsUntilLength / 2;
+
+        if (div > 1) {
+            var res = (div - 1) * 40;
+            $(this).css('paddingLeft', res + 'px');
+        }
+    })
 
     /* Highlighting for aside menu */
     $('ul.topnav li a').each(function(){

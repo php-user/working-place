@@ -18,12 +18,42 @@ return [
                         'action'     => 'index',
                     ],
                 ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'a' => [ // Тут мы можем писать всё что угодно. Не важно что тут мы написали 'а' будет работать путь blog/category/id
+                        'type' => Segment::class,
+                        'options' => [
+                            'route'    => '/category/[:id]',
+                            'constraints'    => [
+                                'id' => '[0-9]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\ArticleController::class,
+                                'action'     => 'index',
+                            ],
+                        ],
+                    ],
+                    'b' => [ // Тут мы можем писать всё что угодно. Не важно что тут мы написали 'b' будет работать путь blog/page/id
+                        'type' => Segment::class,
+                        'options' => [
+                            'route'    => '/page/[:id]',
+                            'constraints'    => [
+                                'id' => '[0-9]+',
+                            ],
+                            'defaults' => [
+                                'controller' => Controller\ArticleController::class,
+                                'action'     => 'page',
+                            ],
+                        ],
+                    ],
+                ],
             ],
         ],
     ],
     'controllers' => [
         'factories' => [
             //Controller\IndexController::class => InvokableFactory::class,
+            //Controller\ArticleController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [

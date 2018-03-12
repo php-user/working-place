@@ -34,7 +34,7 @@ class GetCategories extends AbstractHelper
         if (is_array($cat) && isset($cat[$catId])) {
             $output .= '<ul class="topnav list-group list-unstyled">';
             foreach ($cat[$catId] as $category) {
-                $output .= '<li><a href="#" class="list-group-item">' . $category->getName() . '</a>';
+                $output .= '<li><a href="/blog/category/' . $category->getId() . '" class="list-group-item">' . $category->getName() . '</a>';
                 $output .= $this->buildTree($cat, $category->getId());
                 $output .= '</li>';
             }

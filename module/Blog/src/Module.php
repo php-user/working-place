@@ -23,6 +23,11 @@ class Module
                         $container->get(EntityManager::class)
                     );
                 },
+                Controller\ArticleController::class => function ($container) {
+                    return new Controller\ArticleController(
+                        $container->get(EntityManager::class)
+                    );
+                },
             ],
         ];
     }
