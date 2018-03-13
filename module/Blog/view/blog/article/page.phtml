@@ -3,7 +3,17 @@ $headTitle = 'Article';
 $this->headTitle($headTitle);
 ?>
 <div class="row">
-    <div class="col-sm-12">
-        <h3><?= $headTitle ?></h3>
+    <div class="col-lg-3"><div class="fixed app-nav"><?= $this->getCategories() ?></div></div>
+    <div class="col-sm-9">
+
+        <img src="<?= $article->getImage() ?>" class="card-img-top img-fluid" alt="image">
+        <div class="card-body">
+            <h3 class="card-title"><?= $article->getTitle() ?></h3>
+            <div class="card-text"><?= html_entity_decode($article->getContent()) ?></div>
+        </div>
+        <div class="card-footer text-muted">Posted on <?php date( 'F d, Y' ); ?> by
+            <a href="#">Author</a>
+        </div>
+
     </div>
 </div>

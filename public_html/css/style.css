@@ -13,6 +13,14 @@ a:focus, button[type="button"] {
     outline: none;
 }
 
+a {
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 div.container a.navbar-brand > img {
     display: inline;
     margin-right: 4px;
@@ -70,3 +78,73 @@ a.highlight {
 }
 
 /* End block for aside menu */
+
+
+
+
+
+
+
+
+
+
+
+
+/* For Zend Form Error */
+form ul li {
+    color: #d00;
+}
+
+
+/* For Mandatory Fields */
+label.asterisk::after {
+    content: '*';
+    margin-left: 5px;
+    color: #d00;
+}
+
+#remember-me-label {
+    margin-top: 5px;
+}
+
+/* For login form checkbox */
+#login-form input[type="checkbox"] {
+    margin-top: 9px !important;
+}
+
+div.captcha-box {
+    margin-top: 7px;
+}
+
+
+/* For Captcha */
+.captcha-box {
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px #000, 0 0 1em #000;
+}
+
+#captcha {
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    padding: 0 10px;
+    width: 100px;
+}
+
+
+/* For Application/view/layout/layout.phtml ( You can change this values of course) */
+.registration-block {
+    margin-top: 1px;
+    color: rgba(0,0,0,0.3) !important;
+}
+
+.registration-block a {
+    color: rgba(0,0,0,0.3);
+}
+
+.registration-block a:hover {
+    color: #1a1a1a;
+}
+
+.registration-active-button {
+    color: #1a1a1a !important;
+}

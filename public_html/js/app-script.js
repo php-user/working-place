@@ -87,4 +87,9 @@ $(function(){
 
     //////////////////////////
 
+
+    // var pathname = window.location.pathname;
+    // pathname on the yop of the page
+    $('.registration-block > a[href="' + pathname + '"]').addClass('registration-active-button');
+
 });

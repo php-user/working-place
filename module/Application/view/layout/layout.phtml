@@ -1,4 +1,5 @@
 <?= $this->doctype() ?>
+<?php $user = $this->identity() ?>
 
 <html lang="en"> <!--  lang="en" very important (did not fork form file upload without it) -->
 <head>
@@ -37,8 +38,23 @@
                 echo $this->navigation('top_navigation')->menu()
                                                         ->setUlClass("navbar-nav mr-auto")
                                                         ->setPartial('partial/top-menu')
-                                                        ->render()
+                                                        ->render();
             ?>
+
+
+            <div class="registration-block float-right">
+                <?php if ($user) : ?>
+                    <span class="registration-active-button">Hi
+                        <?= $this->escapeHtml($user->getName()) ?>
+		            </span>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/logout">Logout</a>
+                <?php else : ?>
+                    <a href="/register" class="">Sign Up</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <a href="/login" class="">Login</a>
+                <?php endif; ?>
+            </div>
         </div>
     </div>
 </nav>

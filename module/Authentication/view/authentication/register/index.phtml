@@ -1,0 +1,88 @@
+<?php
+$headTitle = 'Registration page';
+$this->headTitle($headTitle);
+
+$form = $this->form;
+$form->setAttributes(['action' => $this->url('register')]);
+$form->prepare();
+
+?>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="well">
+            <div class="row">
+                <div class="col-lg-10 col-md-11 col-sm-12">
+                <?php
+                    echo $this->form()->openTag($form);
+                    echo '<fieldset><legend>Form for registration</legend><br>';
+                    echo $this->formHidden($form->get('csrf'));
+                    echo $this->formElementErrors($form->get('csrf'));
+                ?>
+                <div class="row form-group">
+                    <div class="col-sm-3">
+                        <?= $this->formLabel($form->get('name')) ?>
+                    </div>
+                    <div class="col-sm-9">
+                        <?= $this->formText($form->get('name')) ?>
+                        <?= $this->formElementErrors($form->get('name')) ?>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-3">
+                        <?= $this->formLabel($form->get('email')) ?>
+                    </div>
+                    <div class="col-sm-9">
+                        <?= $this->formText($form->get('email')) ?>
+                        <?= $this->formElementErrors($form->get('email')) ?>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-3">
+                        <?= $this->formLabel($form->get('password')) ?>
+                    </div>
+                    <div class="col-sm-9">
+                        <?= $this->formPassword($form->get('password')) ?>
+                        <?= $this->formElementErrors($form->get('password')) ?>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-3">
+                        <?= $this->formLabel($form->get('confirmPassword')) ?>
+                    </div>
+                    <div class="col-sm-9">
+                        <?= $this->formPassword($form->get('confirmPassword')) ?>
+                        <?= $this->formElementErrors($form->get('confirmPassword')) ?>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-3">
+                        <?= $this->formLabel($form->get('captcha')) ?>
+                    </div>
+                    <div class="col-sm-9 app-captcha">
+                        <div class="captcha-box">
+                            <?php
+                            $appCaptcha = $this->captcha();
+                            echo $appCaptcha->str;
+                            $form->get('captcha_real_value')->setValue($appCaptcha->sum);
+                            echo $this->formHidden($form->get('captcha_real_value'));
+                            echo $this->formText($form->get('captcha'))
+                            ?>
+                        </div>
+                        <?= $this->formElementErrors($form->get('captcha')) ?>
+                    </div>
+                </div>
+                <br>
+                <div class="row form-group">
+                    <div class="col-sm-12 offset-sm-3">
+                        <?= $this->formSubmit($form->get('submit')) ?>
+                    </div>
+                </div>
+                <?php
+                    echo '</fieldset>';
+                    echo $this->form()->closeTag();
+                ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

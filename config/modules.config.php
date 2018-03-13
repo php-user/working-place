@@ -33,4 +33,5 @@ return [
     //'TutorialMod',
     'Blog',
     'Admin',
+    'Authentication',
 ];

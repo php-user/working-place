@@ -24,16 +24,24 @@ class ArticleController extends AbstractActionController
     public function indexAction()
     {
         $id = $this->params()->fromRoute('id', 0);
-        echo $id;
 
-        return new ViewModel();
+        $articles = $this->articleRepository->findBy(['category' => $id]);
+        $category = $this->categoryRepository->find($id);
+
+        return new ViewModel([
+            'articles' => $articles,
+            'category' => $category,
+        ]);
     }
 
     public function pageAction()
     {
         $id = $this->params()->fromRoute('id', 0);
-        echo $id;
 
-        return new ViewModel();
+        $article = $this->articleRepository->find($id);
+
+        return new ViewModel([
+            'article' => $article,
+        ]);
     }
 }
