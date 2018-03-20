@@ -1,9 +1,8 @@
 $(function(){
 
-    var pathname = window.location.pathname;
+    var pathname = window.location.pathname; // get current URL path
 
     /*   For active menu   */
-    var pathname = window.location.pathname; // get current URL path
 
     if (pathname !== '/') {
         var result = pathname.match(/([a-z]+)/);
